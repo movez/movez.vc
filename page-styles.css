@@ -1,0 +1,225 @@
+/* Shared styles for secondary pages (privacy policy, cookie policy, thesis) */
+
+@font-face {
+	font-family: "Favorit";
+	src: url("wp-content/themes/hypra_theme/assets/fonts/favorite/Favorit_regular.woff") format("woff");
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Favorit";
+	src: url("wp-content/themes/hypra_theme/assets/fonts/favorite/Favorit_bold.woff2") format("woff2");
+	font-weight: 700;
+	font-display: swap;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: #0a0a0a;
+	color: #fff;
+	font-family: "Favorit", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 180%;
+}
+
+.mv-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 22px 40px;
+	background: rgba(10, 10, 10, 0.9);
+	border-bottom: 1px solid #1e1e1c;
+}
+
+.mv-logo img {
+	display: block;
+	height: 36px;
+}
+
+.mv-contact-btn {
+	display: inline-block;
+	padding: 5px 46px;
+	background: #9900FF;
+	border: 1px solid #9900FF;
+	border-radius: 50px;
+	color: #fff;
+	font-size: 16px;
+	line-height: 160%;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: 0.1s ease-out;
+}
+
+.mv-contact-btn:hover {
+	background-image: linear-gradient(88.84deg, #9900FF, #FF00FF);
+	border-color: transparent;
+}
+
+.mv-page {
+	max-width: 860px;
+	margin: 0 auto;
+	padding: 80px 24px 120px;
+}
+
+.mv-page h1 {
+	font-size: 56px;
+	line-height: 110%;
+	font-weight: 700;
+	margin: 0 0 8px;
+}
+
+.mv-accent {
+	background: linear-gradient(88.84deg, #9900FF 0%, #FF00FF 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	color: transparent;
+}
+
+.mv-meta {
+	color: #9c9c9c;
+	margin: 0 0 48px;
+}
+
+.mv-page h2 {
+	font-size: 28px;
+	line-height: 120%;
+	margin: 48px 0 16px;
+}
+
+.mv-page h3 {
+	font-size: 21px;
+	line-height: 130%;
+	margin: 32px 0 12px;
+}
+
+.mv-page p,
+.mv-page li {
+	color: #c9c9c9;
+}
+
+.mv-page a {
+	color: #c77dff;
+}
+
+.mv-page a:hover {
+	color: #fff;
+}
+
+.mv-page table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 24px 0;
+	font-size: 15px;
+}
+
+.mv-page th,
+.mv-page td {
+	border: 1px solid #2b2b2b;
+	padding: 12px 16px;
+	text-align: left;
+	vertical-align: top;
+	color: #c9c9c9;
+}
+
+.mv-page th {
+	color: #fff;
+	background: #161616;
+}
+
+.mv-footer {
+	border-top: 1px solid #1e1e1c;
+	padding: 32px 24px;
+	text-align: center;
+	color: #9c9c9c;
+	font-size: 14px;
+}
+
+.mv-footer a {
+	color: #9c9c9c;
+}
+
+.mv-footer a:hover {
+	color: #fff;
+}
+
+/* Thesis PDF page */
+.mv-pdf-wrap {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 40px 24px 80px;
+}
+
+.mv-pdf-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 16px;
+	margin-bottom: 24px;
+}
+
+.mv-pdf-header h1 {
+	font-size: 36px;
+	line-height: 120%;
+	margin: 0;
+}
+
+.mv-download-btn {
+	display: inline-block;
+	padding: 11px 30px;
+	border: 1px solid #9900FF;
+	border-radius: 50px;
+	color: #fff;
+	font-size: 15px;
+	line-height: 160%;
+	text-decoration: none;
+	transition: 0.25s ease;
+	white-space: nowrap;
+}
+
+.mv-download-btn:hover {
+	background: #9900FF;
+}
+
+.mv-pdf-frame {
+	width: 100%;
+	height: calc(100vh - 240px);
+	min-height: 640px;
+	border: 1px solid #2b2b2b;
+	border-radius: 8px;
+	background: #161616;
+}
+
+@media screen and (max-width: 767px) {
+	.mv-header {
+		padding: 18px 20px;
+	}
+
+	.mv-contact-btn {
+		padding: 1px 28px;
+		font-size: 14px;
+	}
+
+	.mv-page {
+		padding: 48px 20px 80px;
+	}
+
+	.mv-page h1 {
+		font-size: 38px;
+	}
+
+	.mv-page h2 {
+		font-size: 23px;
+	}
+
+	.mv-page table {
+		display: block;
+		overflow-x: auto;
+	}
+}

@@ -1,0 +1,191 @@
+/* Site backgrounds — keep dark page shell after critical CSS is removed */
+body.custom-background,
+body {
+	background-color: #0a0a0a;
+}
+
+#site-content,
+.main_content {
+	background-color: #0a0a0a;
+}
+
+/* Header — single-line nav + Contact button */
+.header-navigation-wrapper {
+	flex-wrap: nowrap;
+}
+
+ul.primary-menu {
+	flex-wrap: nowrap;
+}
+
+#site-header .join_btn a,
+#site-header.header_change .join_btn a {
+	width: auto;
+	white-space: nowrap;
+	background: #9900FF;
+	border-color: #9900FF;
+	color: #fff;
+}
+
+#site-header .join_btn a:hover,
+#site-header.header_change .join_btn a:hover {
+	background-image: linear-gradient(88.84deg, #9900FF, #FF00FF);
+	border-color: transparent;
+	color: #fff;
+}
+
+/* "Join us" button — solid purple like the thesis button */
+#contact .cta_btn a {
+	background: #9900FF;
+	border-color: #9900FF;
+}
+
+#contact .cta_btn a:hover {
+	background-image: linear-gradient(88.84deg, #9900FF, #FF00FF);
+	border-color: transparent;
+}
+
+#contact_us .cta_btn {
+	display: flex;
+	justify-content: flex-start;
+	margin-bottom: 40px;
+}
+
+#contact_us .cta_btn a {
+	font-family: "Favorit", -apple-system, Helvetica, sans-serif;
+	padding: 10.5px 80px;
+	border: 1px solid #A3A3A3;
+	border-radius: 50px;
+	color: #fff;
+	text-decoration: none;
+	transition: 0.1s ease-out;
+	font-size: 18px;
+}
+
+#contact_us .cta_btn a:hover {
+	background-image: linear-gradient(88.84deg, #9900FF, #FF00FF);
+	border-color: transparent;
+	border-left: #9900FF;
+	border-right: #FF00FF;
+}
+
+@media screen and (max-width: 767px) {
+	#contact_us .cta_btn {
+		margin-bottom: 20px;
+	}
+}
+
+/* ==========================================================
+   INVESTMENT THESIS — permanent styles
+   ========================================================== */
+
+#thesis {
+	padding: 120px 40px 48px;
+	background: #0A0A0A;
+	text-align: center;
+}
+
+/* Tighten gap between thesis section and the "Are you ready..." CTA */
+#contact {
+	margin-top: 48px;
+}
+
+/* Desktop team bios — max-height:100% never expands; use a real height */
+#our-team .team_description .person_desc {
+	opacity: 0;
+	max-height: 0;
+	overflow: hidden;
+	padding-top: 0;
+	transition: opacity 0.25s ease, max-height 0.3s ease, padding-top 0.25s ease;
+}
+
+#our-team .team_description .person_desc.active_item {
+	opacity: 1;
+	max-height: 800px;
+	padding-top: 49px;
+}
+
+#our-team .hide_mob .team_item {
+	cursor: pointer;
+}
+
+#our-team .hide_mob .team_item.is-active .team_body {
+	border-image: linear-gradient(90deg, #9900FF, #FF00FF) 1;
+}
+
+/* Mobile team slider dots */
+#our-team .team_content_slider .slick-dots {
+	position: relative;
+	bottom: 0;
+	margin-top: 28px;
+}
+
+#our-team .team_content_slider .slick-dots li button {
+	background: #3a3a3a;
+}
+
+#our-team .team_content_slider .slick-dots li.slick-active button {
+	background: linear-gradient(88.84deg, #9900FF 0%, #FF00FF 100%);
+}
+
+#thesis .thesis_heading {
+	font-family: "Favorit", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 64px;
+	line-height: 110%;
+	font-weight: 900;
+	color: #fff;
+	margin: 0;
+}
+
+#thesis .thesis_heading .hero_acent {
+	background: linear-gradient(88.84deg, #9900FF 0%, #FF00FF 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	color: transparent;
+}
+
+#thesis .thesis_description {
+	max-width: 780px;
+	margin: 28px auto 0;
+	font-family: "Favorit", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 180%;
+	font-weight: 400;
+	color: #9C9C9C;
+	text-align: center;
+}
+
+#thesis .thesis_link {
+	display: inline-block;
+	margin-top: 36px;
+	padding: 11px 30px;
+	border: 1px solid #9900FF;
+	border-radius: 50px;
+	color: #fff;
+	font-family: "Favorit", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 15px;
+	line-height: 160%;
+	text-decoration: none;
+	transition: 0.25s ease;
+}
+
+#thesis .thesis_link:hover {
+	background: #9900FF;
+	color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+	#thesis {
+		padding: 80px 20px;
+	}
+
+	#thesis .thesis_heading {
+		font-size: 42px;
+	}
+
+	#thesis .thesis_description {
+		font-size: 14px;
+		line-height: 170%;
+	}
+}

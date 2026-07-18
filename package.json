@@ -1,0 +1,9 @@
+{
+  "name": "movez-vc-site",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-local.mjs",
+    "dev": "npm run build && npx --yes serve dist -l 3000",
+    "start": "npm run dev"
+  }
+}
