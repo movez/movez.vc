@@ -49,12 +49,10 @@ const COPY_PATHS = [
   "page-styles.css",
   "favicon.svg",
   "favicon.png",
+  "og-image.png",
   "privacy-policy",
   "cookie-policy",
   "thesis",
-  "wp-content/4728793b5086e170d4db34b77c5a77e5_ver=f8fb1aedfd1991a7c1381ac7101e5d8b.js",
-  "wp-content/0039b9d00fc33966e4557c547b0bc5db_ver=4e94ba324b76f9c24697ccba3157cddc.js",
-  "wp-content/eb70db8f594c5f286bda9198906af606_ver=577d8f281f77870784dfe107af1e2d7a.js",
   "wp-content/themes/hypra_theme/assets/js",
   "wp-content/themes/hypra_theme/img",
   "wp-content/themes/hypra_theme/print_ver=1.0.css",
@@ -135,11 +133,42 @@ function patchHtml(html) {
     ""
   );
 
-  // Cookie banner hides content until consent; disable for local preview.
+  // Remove WordPress Real Cookie Banner (broken on static hosting; consent never persists).
   out = out.replace(
-    /<style>\[consent-id\]:not\(\.rcb-content-blocker\)[\s\S]*?<\/style>/,
+    /<style>\[consent-id\]:not\(\.rcb-content-blocker\)[\s\S]*?<\/style>/g,
     ""
   );
+  out = out.replace(
+    /<link[^>]*(?:real-cookie-banner|animate\.css\/animate\.min\.css)[^>]*>\s*/gi,
+    ""
+  );
+  out = out.replace(
+    /<script[^>]*>[\s\S]*?(?:realCookieBanner|consentApi|real-cookie-banner)[\s\S]*?<\/script>\s*/gi,
+    ""
+  );
+  out = out.replace(
+    /<script[^>]*src="[^"]*(?:real-cookie-banner|0039b9d00fc33966e4557c547b0bc5db|4728793b5086e170d4db34b77c5a77e5|eb70db8f594c5f286bda9198906af606)[^"]*"[^>]*><\/script>\s*/gi,
+    ""
+  );
+  out = out.replace(
+    /<noscript><link[^>]*(?:animate-css|real-cookie-banner)[^>]*><\/noscript>\s*/gi,
+    ""
+  );
+
+  // No analytics on the static site — strip GA / GTM leftovers from the export.
+  out = out.replace(
+    /<script[^>]*src="[^"]*googletagmanager\.com[^"]*"[^>]*><\/script>\s*/gi,
+    ""
+  );
+  out = out.replace(
+    /<script[^>]*>[\s\S]*?(?:G-7QC6PPJC4H|GTM-PSV9LV8|gtag\(|googletagmanager)[\s\S]*?<\/script>\s*/gi,
+    ""
+  );
+  out = out.replace(
+    /<!--\s*Google Tag Manager[\s\S]*?<!--\s*End Google Tag Manager(?: \(noscript\))?\s*-->\s*/gi,
+    ""
+  );
+  out = out.replace(/<noscript>[\s\S]*?googletagmanager\.com\/ns\.html[\s\S]*?<\/noscript>\s*/gi, "");
 
   // Load jQuery → slick → main in order (no defer races that break the team slider).
   out = out.replace(
